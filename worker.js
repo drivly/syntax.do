@@ -21,8 +21,9 @@ export default {
   fetch: async (req, env) => {
     const { user, origin, requestId, method, body, time, pathname, pathSegments, pathOptions, url, query } = await env.CTX.fetch(req).then(res => res.json())
 
-    const scripts = pathSegments.map(segment => esprima.parseScript(segment))
+    let file = await fetch('https:/' + pathname, req).then(res => res.text()).catch()
+    const ast = data ? esprima.parseScript(file) : pathSegments.map(segment => esprima.parseScript(segment))
 
-    return new Response(JSON.stringify({ api, scripts, user }, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' }})
+    return new Response(JSON.stringify({ api, ast, user }, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' }})
   },
 }
