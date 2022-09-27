@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "esprima-next": "^5.8.4"
+  }
+}
