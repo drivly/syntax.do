@@ -24,7 +24,7 @@ export default {
     let file, ast, error = undefined
     try {
       file = await fetch('https:/' + pathname, req).then(res => res.text()).catch()
-      ast = file ? esprima.parseScript(file) : esprima.parseScript(pathSegment[0]))
+      ast = file ? esprima.parseScript(file) : esprima.parseScript(pathSegment[0])
     } catch ({name,message}) {
       error = {name,message}
     }
