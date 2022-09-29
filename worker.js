@@ -7,14 +7,19 @@ export const api = {
   url: 'https://syntax.do/api',
   type: 'https://apis.do/code',
   endpoints: {
-    list: 'https://syntax.do/:code',
-    get: 'https://syntax.do/:url',
+    parseScript: 'https://syntax.do/:code',
+    parseModule: 'https://syntax.do/:url',
   },
   site: 'https://syntax.do',
   login: 'https://syntax.do/login',
   signup: 'https://syntax.do/signup',
   subscribe: 'https://syntax.do/subscribe',
   repo: 'https://github.com/drivly/syntax.do',
+}
+
+const examples = {
+  parseScript: 'https://syntax.do/x=x^3',
+  parseGist: 'https://syntax.do/gist.githubusercontent.com/nathanclevenger/05c566c2452de53caa20a32cd12fbbca/raw/203017cdae58f14d72a242627a1e10e986444a2f/index.js',
 }
 
 export default {
