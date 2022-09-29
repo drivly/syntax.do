@@ -7,8 +7,8 @@ export const api = {
   url: 'https://syntax.do/api',
   type: 'https://apis.do/code',
   endpoints: {
-    list: 'https://syntax.do/list',
-    get: 'https://syntax.do/:id',
+    list: 'https://syntax.do/:code',
+    get: 'https://syntax.do/:url',
   },
   site: 'https://syntax.do',
   login: 'https://syntax.do/login',
@@ -23,6 +23,7 @@ export default {
     
     let file, ast, error = undefined
     try {
+      const path = pathname.replace(':code','get(Customer.name).map(Customers).compact().sortBy(city,firstName)')
       file = await fetch('https:/' + pathname, req).then(res => res.text()).catch(({name,message}) => { error = {name,message}})
       ast = file ? esprima.parseScript(file) : esprima.parseScript(pathSegments[0])
     } catch ({name,message}) {
