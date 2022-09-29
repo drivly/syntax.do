@@ -18,7 +18,7 @@ export const api = {
 }
 
 const examples = {
-  parseScript: 'https://syntax.do/x=x^3',
+  parseScript: 'https://syntax.do/x=x+3',
   parseGist: 'https://syntax.do/gist.githubusercontent.com/nathanclevenger/05c566c2452de53caa20a32cd12fbbca/raw/203017cdae58f14d72a242627a1e10e986444a2f/index.js',
 }
 
