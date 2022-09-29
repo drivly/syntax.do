@@ -1,5 +1,4 @@
-# syntax.do
-Abstract Syntax Tree Parser API
+# syntax.do - Abstract Syntax Tree Parser API
 
 Parse an Abstract Syntax Tree of a JavaScript string: <https://syntax.do/x=x+3>
 ```json
