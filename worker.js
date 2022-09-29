@@ -25,7 +25,7 @@ export default {
     try {
       const path = pathname.replace(':code','get(Customer.name).map(Customers).compact().sortBy(city,firstName)')
       file = await fetch('https:/' + pathname, req).then(res => res.text()).catch(({name,message}) => { error = {name,message}})
-      ast = file ? esprima.parseScript(file) : esprima.parseScript(pathSegments[0])
+      ast = file ? esprima.parseModule(file) : esprima.parseScript(pathSegments[0])
     } catch ({name,message}) {
       error = {name,message}
     }
