@@ -34,7 +34,9 @@ export default {
     } catch ({name,message}) {
       error = {name,message}
     }
+    
+    let codeLines = error ? file.split('\n') : undefined
 
-    return new Response(JSON.stringify({ api, file, ast, error, user }, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' }})
+    return new Response(JSON.stringify({ api, ast, error, codeLines, file, user }, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' }})
   },
 }
