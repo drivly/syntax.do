@@ -24,12 +24,12 @@ const examples = {
 
 export default {
   fetch: async (req, env) => {
-    const { user, origin, requestId, method, body, time, pathname, pathSegments, pathOptions, url, query } = await env.CTX.fetch(req).then(res => res.json())
+    const { user, origin, requestId, method, body, time, pathname, pathSegments, pathOptions, url, query, search } = await env.CTX.fetch(req).then(res => res.json())
     
     let file, ast, error = undefined
     try {
       const path = pathname.replace(':code','get(Customer.name).map(Customers).compact().sortBy(city,firstName)')
-      file = await fetch('https:/' + pathname, req).then(res => res.text()).catch(({name,message}) => { error = {name,message}})
+      file = await fetch('https:/' + pathname + search, req).then(res => res.text()).catch(({name,message}) => { error = {name,message}})
       ast = file ? esprima.parseModule(file) : esprima.parseScript(pathSegments[0])
     } catch ({name,message}) {
       error = {name,message}
